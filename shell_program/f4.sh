@@ -1,0 +1,8 @@
+echo enter a number
+read a
+x=`expr $a % 2`
+if test $x -eq 0
+then echo even
+else
+echo odd
+fi

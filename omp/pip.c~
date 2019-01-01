@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<omp.h>
+long num_steps=10000;
+double steps;
+#define num_threads 4
+main()
+{
+int i;
+double pi=0.0,sum[num_threads],step;
+step=1.0/(double)num_steps;
+omp_set_num_threads(num_threads);
+
+#pragma omp parallel 
+{
+	
+	double x;
+	int id=omp_get_thread_num();
+	#pragma omp for reduction(+:pi) 
+	for(i=1;i<=num_steps;i++)
+	{
+			x=(i-0.5)*step;
+			pi=pi+(4.0/(1.0+x*x));
+			
+	}
+	
+	
+}
+	printf("summation =%lf",pi);
+	printf("PIE %lf",(pi*step));
+	return 0;
+}

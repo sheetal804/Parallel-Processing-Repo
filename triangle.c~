@@ -1,0 +1,19 @@
+#include<stdio.h>
+int istriangle(int a,int b,int c)
+{
+	if(a+b>c||b+c>a||a+c>b)
+	return 1;
+	else
+	return 0;
+}
+int main()
+{
+	int a,b,c;
+	printf("Enter sides of triangle\n");
+	scanf("%d%d%d",&a,&b,&c);
+	if(istraingle(a,b,c))
+	printf("TRIANGLE\n");
+	else
+	PRINTF("NOT A TRIANGLE\n");
+	return 0;
+}

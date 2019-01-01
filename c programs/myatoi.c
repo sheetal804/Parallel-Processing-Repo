@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<math.h>
+int mystrlen(char *c)
+{
+	int i=0;
+	while(c[i]!='\0')
+	{
+		i++;
+	}
+return i;
+}
+int myatoi(char *c)
+{
+	int num,l=mystrlen(c),i=0;
+	l--;
+	while(a[i]!='\0')
+	{
+		num=num+c[i]*pow(10,l);
+		i++;
+		l--;
+	}
+	return num;
+}
+int main()
+{
+	char s[20];
+
+	scanf("%s",s);
+	printf("%s",s);
+	printf("the integered string id %d\n",myatoi(s));
+return 0;
+}

@@ -1,0 +1,3 @@
+s=` expr $1 + $2`
+echo "answer="
+echo $s

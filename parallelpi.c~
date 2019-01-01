@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<omp.h>
+long num_steps=100000;
+double steps;
+#define num_threads 4
+main()
+{
+int i;
+double pi,sum[num_threads],step;
+step=1.0/(double)num_steps;
+omp_set_num_threads(num_threads);
+
+#pragma omp parallel 
+{
+	double x;
+	int id;
+	id=omp_get_thread_num();
+	
+	
+	sum[id]=0.0;
+	#pragma omp for schedule(static)
+	
+	for(i=id;i<num_steps;i+=num_threads)
+	{
+		x=(i-0.5)*step;
+		sum[id]+=4.0/(1.0+x*x);
+	}
+	
+}
+	for(i=0,pi=0;i<num_threads;i++)
+	{
+		pi+=sum[i]*step;
+	}
+	printf("PIE %lf",pi);
+	return 0;
+}

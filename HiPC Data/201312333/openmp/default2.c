@@ -1,0 +1,24 @@
+#include<omp.h>
+#include<stdio.h>
+main()
+{
+	int i,n,chunk;
+	float a[100],b[100],result;
+	n=10;
+	chunk=2;
+	result=0.0;
+	int tid;
+	for(i=0;i<n;i++)
+	{
+		a[i]=i*1.0;
+		b[i]=i*2.0;
+	}	
+	printf("%d",omp_get_num_threads());
+	omp_set_num_threads(4);
+	#pragma omp paralllel for default(shared) private(i)  scheduled(static,chunk)  reduction(+:result)
+	for(i=0;i<n;i++)
+	{	result=result+(a[i]*b[i]);
+		printf("Final result=%f\ta[%d]=%f\tb[%d]=%f\ttid=%d\n",result,i,a[i],i,b[i],omp_get_thread_num());
+	}	
+	
+}

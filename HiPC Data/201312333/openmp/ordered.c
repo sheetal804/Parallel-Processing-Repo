@@ -1,0 +1,9 @@
+#include<stdio.h>
+#include<omp.h>
+int main()
+{
+	int n=10,i;
+	#pragma omp parallel for ordered
+	for(i=0;i<n;i++)
+	printf("tid=%d,i=%d\n",omp_get_thread_num(),i);
+	}

@@ -1,0 +1,16 @@
+for(i=0;i<n;i++)
+{
+	x[i]=0;
+}
+do
+{
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			s=s-a[i][j];
+		}
+		x[i]=(b[0][i]-s)/a[i][i];
+	}
+	for(i=0;i<n;i++)
+	printf("%d\n",x[i]);

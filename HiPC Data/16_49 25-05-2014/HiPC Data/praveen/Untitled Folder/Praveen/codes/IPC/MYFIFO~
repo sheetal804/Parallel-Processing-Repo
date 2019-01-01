@@ -1,0 +1,19 @@
+prog >outfile
+will write the standard output to outfile instead. If pipes are supported,
+prog | anotherprog
+puts the standard output of prog into the standard input of anotherprog .
+Output produced by printf also finds its way to the standard output. Calls to putchar and
+printf may be interleaved - output happens in the order in which the calls are made.
+Each source file that refers to an input/output library function must contain the line
+#include <stdio.h>
+before the first reference. When the name is bracketed by < and > a search is made for the
+header in a standard set of places (for example, on UNIX systems, typically in the directory
+/usr/include ).
+Many programs read only one input stream and write only one output stream; for such
+programs, input and output with getchar , putchar , and printf may be entirely adequate,
+and is certainly enough to get started. This is particularly true if redirection is used to connect
+the output of one program to the input of the next. For example, consider the program lower ,
+which converts its input to lower case:
+#include <stdio.h>
+#include <ctype.h>
+main() /* lower: convert input to lower case*/

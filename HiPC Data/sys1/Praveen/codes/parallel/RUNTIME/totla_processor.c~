@@ -1,0 +1,6 @@
+#include<omp.h>
+#include<stdio.h>
+int main(){
+	printf("TOTAL PROCESSOR: %d\"",omp_get_num_procs());
+	return 0;
+}	

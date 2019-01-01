@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<omp.h>
+#include<time.h>
+int main()
+{
+	int k,i,j,n,s;
+	FILE *fp;
+	
+	clock_t begin,end;
+	double time_spent;
+	printf("Enter the dimension\n");
+	scanf("%d",&n);
+	int a[n][n],b[n][n],c[n][n];
+	begin=clock();
+	for(i=0;i<n;i++)
+	{
+		a[i]=rand();
+		b[i]=rand();
+	}
+	begin=clock();
+	fp=fopen("addition.txt","w");
+	#pragma omp parallel schedule(static)
+	{
+		for(i=0;i<n;i++)
+		{
+	
+			fprintf(fp,"%d\t",(a[i]+b[i]));
+		}	
+			fprintf(fp,"\n");
+	
+	
+	}
+	end=clock();
+	time_spent=(double)(end-begin)/CLOCKS_PER_SEC;
+	printf("Time spent %lf\n",time_spent);
+	return 0;
+}

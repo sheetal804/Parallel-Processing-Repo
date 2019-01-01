@@ -1,0 +1,7 @@
+c = ` expr $1 % 2`
+if test $c -eq 0
+then echo "$1 even num"
+
+else
+echo "$1 odd num"
+fi

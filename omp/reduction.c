@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<omp.h>
+#include<stdlib.h>
+int main()
+{
+	int i,n;
+	float s=0.0;
+	printf("Enter the limit of the array\n");
+	scanf("%d",&n);
+	float a[n];
+	for(i=0;i<n;i++)
+	a[i]=(float)rand()/RAND_MAX;
+	for(i=0;i<n;i++)
+	printf("%f\t",a[i]);
+	#pragma omp parallel for reduction(+:s)
+	for(i=0;i<n;i++)
+	{
+		s=a[i];
+	}
+	printf("sum=%f\n",s);
+return 0;
+}

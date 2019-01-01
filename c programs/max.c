@@ -1,0 +1,12 @@
+#include<stdio.h>
+int max(int a,int b)
+{
+	return ((a>b)?a:b);
+}
+int main()
+{
+	int a=5,b=10;
+	printf("%d",max(5,10));
+	printf("\t%d\n",max(a++,b++));
+	return 0;
+}

@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdarg.h>
+void vdisplay(int num,...)
+{
+	va_list mylist;	
+	int i,x;
+	va_start(mylist,num);
+	for(i=0;i<num;i++)
+	{
+		x=va_arg(mylist,int);	
+		printf("%d\t",x);
+		
+	}
+	va_end(mylist);
+}
+int main(int argc,char *argv[])
+{
+	int x;
+		vdisplay(3,4,7,6);
+		return 0;
+}
+	

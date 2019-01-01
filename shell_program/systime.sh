@@ -1,0 +1,12 @@
+time=`date | cut -c12-13`
+if [ $time -lt 12 ]
+then
+	echo GOOD MORNING
+elif [ $time -ge 12 -a $time -lt 16  ]
+	then
+	echo GOOD AFTERNOON
+elif [ $time -ge 16 -a $time -lt 18   ]
+	then
+ 	echo GOOD EVENING
+fi
+ 

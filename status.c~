@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int pid;
+	int rv;
+	pid=fork();
+	switch(pid)
+	{
+		case -1:
+		printf("Error \n");
+		exit(1);
+		case 0:
+		printf("CHILD PROCESS\n");
+		printf("chid - pid :%d\n",getpid());
+		printf("parent of child  - pid :%d\n",getppid());
+  		printf("enter my exit status\n");
+		scanf("%d",&rv);
+		printf("CHILD im here\n");
+		exit(rv);
+		default:
+		printf(" PARENT PROCESS: \n");		
+	         printf("parent pid :%d\n",getpid());
+		printf("parent's child pid :%d\n",pid());
+		printf(" PARENT I am waiting for my child to exit\n");
+		wait(&rv);
+		printf("PARENT im here\n");
+	}
+	return 0;
+}
+		

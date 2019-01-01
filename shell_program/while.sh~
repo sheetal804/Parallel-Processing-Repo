@@ -1,0 +1,22 @@
+echo enter two numbers
+read a b
+
+echo "enter a choice 1:addition 2:subtraction 3:multiplication 4:divition 5:stop"
+read ch
+while [ $ch -eq 5 ]
+do
+
+case $ch in
+1) echo "sum is `expr $a + $b`"
+	;;
+2)echo "sum is `expr $a - $b`"
+	;;
+3)echo "sum is `expr $a \* $b`"
+	;;
+4)echo "sum is `expr $a / $b`"
+	;;
+*)echo wrong choice
+esac
+echo "enter a choice 1:addition 2:subtraction 3:multiplication 4:divition 5:stop"
+read ch
+done

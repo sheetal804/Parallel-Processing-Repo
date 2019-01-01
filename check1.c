@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{	
+	int i,d,r=42;
+	char a[20];
+	while(r!=0)
+	{
+		d=r%10;
+		a[i]=d;
+		r=r/10;
+		printf("%d",a[i]);
+		i++;
+		}
+
+	return 0;
+}

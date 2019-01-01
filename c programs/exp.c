@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<math.h>
+int fact(int n)
+{
+	if(n==1)
+	return 1;
+	else
+	return (n*fact(n-1));
+}
+double expseries(double x)
+	{
+		int n=15;
+		double d=0.0,a,b;
+		int i,k=1;
+		for(i=1;i<=n;i++)
+		{
+			
+	
+			d=d+(pow(x,i)/fact(i));
+		}
+	return d;
+	}
+int main()
+{
+	double x;
+	printf("Enter angle in radian\n");
+	scanf("%lf",&x);
+	printf("series result= %lf\n",expseries(x));
+	printf("library result= %lf\n",exp(x));
+	return 0;
+}
+						

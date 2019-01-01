@@ -1,0 +1,20 @@
+for(j=i;j<n+1;j++)
+		{
+			if(i==0)
+			a[i][]={b,c};
+			else if(i==1)
+			a[i][]={a,b,c};
+			{
+				for(k=0;k<i;k++)
+				{
+					a[i][k]=0;
+				}
+			else a[][]={a,b,c};
+		}
+
+
+	printf("a=%lf\n",a1);
+	printf("b=%lf\n",b1);
+	printf("c=%lf\n",c1);
+printf("%lf",h);
+

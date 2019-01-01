@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<malloc.h>
+# define INT_MAX 10000
+typedef struct node
+{
+	int ver;
+	node *next;
+}node;
+
+int main()
+{
+	int G=0,i,j,v;
+
+	double p,x;
+	double **a=(double**)malloc(v*sizeof(double*));
+	for(i=0;i<=v;i++)
+		a[i]=(double*)malloc(v*sizeof(int));
+
+	//node n[]
+	printf("\n Enter the value of V:");
+	scanf("%d",&v);
+	printf("\n Enter the value of probability:");
+	scanf("%lf",&p);
+	for(i=0;i<=v-1;i++);
+	{
+		for(j=0;j<=v-1;j++)
+		{
+			x=(double)(rand()/INT_MAX);
+			printf("x:%lf",x);
+			//if(x<p)
+			//a[i][j]=1;
+		}
+	}
+}

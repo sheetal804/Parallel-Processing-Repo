@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<sys/time.h>
+int main()
+{
+	double ts,te,to;
+	int k,i,j,n,s;
+	struct timeval TimeValue_Start;
+	struct timezone Timezone_Start;
+	struct timeval TimeValue_Final;
+	struct timezone Timezone_Final;
+	printf("Enter the dimension\n");
+	scanf("%d",&n);
+	int a[n][n],b[n][n],c[n][n];
+	
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+		a[i][j]=2;
+		b[i][j]=1;		
+		}
+	}
+	gettimeofday(&TimeValue_Start,&Timezone_Start);
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			s=0;
+			
+				for(k=0;k<n;k++)
+				{
+				c[i][j]+=a[j][k]*b[k][j];
+			
+				}	
+		}
+	}
+	gettimeofday(&TimeValue_Final,&Timezone_Final);
+	te=TimeValue_Final.tv_sec*1000000+TimeValue_Final.tv_usec;
+	ts=TimeValue_Start.tv_sec*1000000+TimeValue_Start.tv_usec;
+	to=(te-ts)/1000000;
+	
+	printf("TIME in serial computing =%lf\n",to);
+return 0;
+}
+		
+	

@@ -1,0 +1,18 @@
+echo enter a number
+read a
+f=0
+while [ $a -ne 1 ]
+do
+	x=`expr $a % 2`
+	if [ $x -ne 0 ]
+	then 
+		f=1
+	fi
+	a=`expr $a / 2`
+done
+if [ $f -eq 0 ]
+then
+echo power of 2
+else
+echo not power of 2
+fi

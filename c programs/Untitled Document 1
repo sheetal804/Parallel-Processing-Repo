@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+	printf("Enter cofficient of differential equation ");
+	printf("\t of the form ay''+ by' + y \n");
+	scanf("%d%d%d",&a,&b,&c);
+	printf("enter boundary conditions\n");
+	printf(" for x=0 enter value of y \n");
+	scanf("%d",&x1);
+	printf("for x=1 enter value of y\n");
+	scanf("%d",&x2);
+	printf("Enter the 

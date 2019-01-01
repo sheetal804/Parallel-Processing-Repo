@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<omp.h>
+int a,b,i,tid;
+float x;
+#pragma omp threadprivate(a,b,x)
+main()
+{
+	omp_set_dynamic(0);
+	printf("1st Parallel region\n");
+#pragma omp parallel private(tid)
+	{
+		tid=omp_get_thread_num();
+		a=tid;
+		b=tid;
+		x=1.1*tid+1.0;
+		printf("Thread %d\t: a,b,x= %d\t%d\t%f\n",tid,a,b,x);
+	}
+	printf("*******************\n");
+	printf("Master thread doin work\n");
+	printf("*******************\n");
+	printf("2nd parallel region\n");
+	#pragma omp parallel private(tid)
+	{
+		tid=omp_get_thread_num();
+		printf("Thread %d\t: a,b,c= %d\t%d\t%f\n",tid,a,b,x);
+	}
+	return 0;
+}

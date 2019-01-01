@@ -1,0 +1,4 @@
+
+				g[i][j]=or(g[i][j],x);
+				printf("%d",g[i][j]);
+				fprintf(fp,"%d\t",g[i][j]);printf("%d\t",a[i][j]);

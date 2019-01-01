@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<omp.h>
+#include<time.h>
+#define NUM_THREADS 4
+int main()
+{
+	double time_spent;
+	clock_t begin,end;
+	int n,s=0,p,id;
+	printf("Enter the dimension\n");
+	scanf("%d",&n);
+	int i,j,k;
+	int a[n][n],b[n][n];
+	int c[n][n];
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+		a[i][j]=2;
+		b[i][j]=1;		
+		}
+	}
+	FILE *fp;
+	fp=fopen("multivalue.txt","w");
+	begin=clock();
+   #pragma omp parallel
+   {
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<n;j++)
+		      	{
+				s=0;
+				  for(k=0;k<n;k++)
+				  {
+					#pragma omp sections
+					{
+				
+						#pragma omp section
+						{
+						p=a[j][k]*a[k][j];
+						}
+						#pragma omp section
+						{
+							wait(0);
+							s=s+p;
+						}
+					}
+				   }
+				  c[i][j]=s;
+		
+				   fprintf(fp,"%d\t",c[i][j]);
+			   
+				  fprintf(fp,"\n");
+		         }
+			
+                 }
+	    
+	}
+	end=clock();
+	time_spent=(double)(end-begin)/CLOCKS_PER_SEC;
+	printf("Time taken =%lf\n",time_spent);
+	/*for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+		printf("%d\t",c[i][j]);
+		}
+		printf("\n");
+	}*/
+return 0;
+}

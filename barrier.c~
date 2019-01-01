@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<omp.h>
+void print_time(int t,char *s)
+{
+	
+	printf("THREAD %d\t is %s\n",t,s);
+}
+int main()
+{
+	int tid;
+	#pragma omp parallel private(tid)
+	{	
+		int y;
+		y=omp_get_num_threads();
+		printf("%d",y);
+		tid=omp_get_thread_num();
+		if(tid<y/2)
+		system("sleep 3");
+		print_time(tid,"before");
+	}
+	#pragma omp barrier
+	{
+		print_time(tid,"after");
+	}
+	return 0;
+}

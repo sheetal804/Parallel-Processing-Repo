@@ -1,0 +1,16 @@
+echo enter a number
+read n
+num=n
+s=0
+while [ $n -ne 0 ]
+do
+	d=`expr $n % 10`
+	s=`expr $s + $d`
+	n=`expr $n / 10`
+done
+	if [ $s -eq num ]
+	then
+	echo perfect number
+	else
+	echo not a perfect number
+	fi

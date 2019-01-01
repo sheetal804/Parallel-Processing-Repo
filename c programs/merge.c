@@ -1,0 +1,51 @@
+#include<stdio.h>
+void matrix()
+{
+	int n,p;
+	printf("enter dimension\n");
+	scanf("%d",&n);
+
+	float a[n][n],m;
+	int i,j,k;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			scanf("%f",&a[i][j]);
+		}
+	}
+	printf("Original matrix\n");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%f\t",a[i][j]);
+		}
+		printf("\n");
+	
+	}
+	for(i=1;i<n;i++)
+	{
+		m=a[i][0]/a[0][0];
+		printf("ratio%f\n",m);
+	for(j=0;j<n;j++)
+	{
+		a[i][j]=a[i][j]-m*a[0][j];
+	}
+	}
+	printf("new matrix\n");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%f\t",a[i][j]); 
+		}
+		printf("\n");
+	}
+}
+int main()
+{
+	matrix();
+	return 0;
+}
+

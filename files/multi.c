@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+void multiply(int a[],int b[]);
+int main()
+{
+	float **a;
+	float **b;
+	int n,m,i,j;
+	printf("Enter the dimension");
+	scanf("%d",&n);
+	a=(float**)malloc(n*sizeof(float));
+	b=(float**)malloc(n*sizeof(float));
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+		a[i][j]=rand();
+		b[i][j]=rand();
+
+		printf("%f",a[i][j]);
+		printf("%f",b[i][j]);
+		getchar();		
+		}
+	}
+return 0;
+}	
+	
+
+void multiply(float a[][],float b[][])
+{
+
+	int k,i,j;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			s=0;
+			for(k=0;k<10;k++)
+			{
+				s=a[j][k]*b[k][j]+s;
+			
+			}
+			c[i][j]=s;
+			printf("%f",c[i][j]);
+		}
+	}
+}
+

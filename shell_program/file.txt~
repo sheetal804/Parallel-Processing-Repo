@@ -1,0 +1,8 @@
+make your way
+echo maximum is $a
+	if [ $b -gt $c	]
+	then 
+		echo maximum is $b
+	else
+		echo maximum is $c
+	fi

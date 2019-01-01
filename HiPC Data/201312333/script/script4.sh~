@@ -1,0 +1,26 @@
+echo "enter 5 number"
+i=1
+a=$1
+b=$2
+c=$3
+d=$4
+e=$5
+while [ $i -le 5 ]
+ do
+	
+	if [ $a -ge $b ]
+           then
+	temp=$a
+	$a=$b
+	$b=$a
+	$i= `expr $i +1`
+	fi
+done
+#while [ $i -le 5 ]
+#do
+	
+#	echo "$i"
+#done
+ #!/bin/bash
+
+

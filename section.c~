@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<omp.h>
+void funcA()
+{
+	printf("\n CALL OF SECTION 1\n");
+}
+
+void funcB()
+{
+	printf("\n CALL OF SECTION 2\n");
+}
+
+int main()
+{
+	#pragma omp parallel
+	{
+		int id=omp_get_thread_num();
+		printf("\n TID %d\n",id);
+		#pragma omp sections
+		{	
+			#pragma omp section
+			{			
+				
+				printf("\n TID OF SECTION 1  is %d\n",id);
+				(void)funcA();
+			}
+
+			#pragma omp section
+			{			
+			
+				printf("\n TID OF SECOND SECTION 2  is %d",id);
+					funcB();		
+			}
+		}
+	}
+	return 0;
+}
+			

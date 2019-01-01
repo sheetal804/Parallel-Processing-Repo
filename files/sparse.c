@@ -1,0 +1,78 @@
+#include<stdio.h>
+
+
+
+int main()
+{
+	int n,k;
+	printf("Enter no of partition\n");
+	scanf("%d",&n);
+
+	int i,j,x1,x2;
+	double a1,b1,c1,h,m,p,q;
+
+	printf(" for x=0 enter value of y \n");
+	scanf("%d",&x1);
+
+	printf("for x=1 enter value of y\n");
+	scanf("%d",&x2);
+	p=x2-x1;
+	q=n+1;
+	h=(p/q);
+	
+	a1=1/(h*h);
+	b1=(-2/(h*h))+(3/h)+2;
+	c1=(1/(h*h))-(3/h);
+
+	double a[n+1],b[n+1],c[n+1],d[n+1],x[n+1];
+	
+
+	for(i=0;i<n;i++)
+	{
+		a[i]=a1;
+		b[i]=b1;
+		c[i]=c1;
+		d[i]=1;
+	}
+	printf("ORIGINAL MATRIX\n");
+	for(k=0;k<n;k++)
+		{
+		
+			printf("\t%lf",a[k]);
+			printf("\t%lf",b[k]);
+			printf("\t%lf",c[k]);
+			printf("\t%lf\n",d[k]);
+		}
+		
+
+	
+	for(k=1;k<n;k++)
+	{
+		m=a[k]/b[k-1];
+		
+		b[k]=b[k]-(m*c[k-1]);
+		
+		d[k]=d[k]-m*d[k-1];
+		
+		
+	}
+	
+	x[n-1]=d[n-1]/b[n-1];
+		for(k=n-2;k>=0;k--)
+		{
+			x[k]=(d[k]-c[k]*x[k+1])/b[k];
+			
+		}
+		printf("MODIFIED MATRIX\n");
+		for(k=0;k<n;k++)
+		{
+			printf("\t%lf\t",a[k]);
+			printf("\t%lf\t",b[k]);
+			printf("\t%lf\t",c[k]);
+			printf("\t%lf\t",d[k]);
+			printf("\t%lf\n",x[k]);
+		}
+			
+	
+	return 0;
+}
